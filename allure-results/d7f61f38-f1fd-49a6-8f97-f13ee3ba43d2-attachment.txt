@@ -1,0 +1,66 @@
+Allure Step Failed: Verify exactly 1 item in cart ExpectError: Cart should contain exactly 1 item
+
+expect(received).toBe(expected) // Object.is equality
+
+Expected: 1
+Received: 2
+    at D:\Oanh's folder\playwright_ts\src\tests\cart.test.ts:164:74
+    at Function.step (D:\Oanh's folder\playwright_ts\src\utils\allure.utils.ts:65:28)
+    at D:\Oanh's folder\playwright_ts\src\tests\cart.test.ts:159:9 {
+  matcherResult: {
+    actual: 2,
+    expected: 1,
+    message: '\x1B[2mexpect(\x1B[22m\x1B[31mreceived\x1B[39m\x1B[2m).\x1B[22mtoBe\x1B[2m(\x1B[22m\x1B[32mexpected\x1B[39m\x1B[2m) // Object.is equality\x1B[22m\n' +
+      '\n' +
+      'Expected: \x1B[32m1\x1B[39m\n' +
+      'Received: \x1B[31m2\x1B[39m',
+    name: 'toBe',
+    pass: false
+  },
+  [Symbol(step)]: {
+    category: 'expect',
+    apiName: 'expect.toBe',
+    title: 'Cart should contain exactly 1 item',
+    shortTitle: 'Cart should contain exactly 1 item',
+    params: { expected: 1 },
+    infectParentStepsWithError: undefined,
+    stepId: 'expect@76',
+    group: undefined,
+    boxedStack: undefined,
+    location: {
+      file: "D:\\Oanh's folder\\playwright_ts\\src\\tests\\cart.test.ts",
+      line: 164,
+      column: 74
+    },
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'expect@76',
+      _title: 'Cart should contain exactly 1 item',
+      _parentStep: undefined,
+      skip: [Function (anonymous)]
+    },
+    complete: [Function: complete],
+    endWallTime: 1772704788170,
+    error: {
+      message: 'Error: Cart should contain exactly 1 item\n' +
+        '\n' +
+        '\x1B[2mexpect(\x1B[22m\x1B[31mreceived\x1B[39m\x1B[2m).\x1B[22mtoBe\x1B[2m(\x1B[22m\x1B[32mexpected\x1B[39m\x1B[2m) // Object.is equality\x1B[22m\n' +
+        '\n' +
+        'Expected: \x1B[32m1\x1B[39m\n' +
+        'Received: \x1B[31m2\x1B[39m',
+      stack: 'Error: Cart should contain exactly 1 item\n' +
+        '\n' +
+        '\x1B[2mexpect(\x1B[22m\x1B[31mreceived\x1B[39m\x1B[2m).\x1B[22mtoBe\x1B[2m(\x1B[22m\x1B[32mexpected\x1B[39m\x1B[2m) // Object.is equality\x1B[22m\n' +
+        '\n' +
+        'Expected: \x1B[32m1\x1B[39m\n' +
+        'Received: \x1B[31m2\x1B[39m\n' +
+        "    at D:\\Oanh's folder\\playwright_ts\\src\\tests\\cart.test.ts:164:74\n" +
+        "    at Function.step (D:\\Oanh's folder\\playwright_ts\\src\\utils\\allure.utils.ts:65:28)\n" +
+        "    at D:\\Oanh's folder\\playwright_ts\\src\\tests\\cart.test.ts:159:9",
+      cause: undefined
+    }
+  }
+}

@@ -1,0 +1,12 @@
+Successfully entered phone number: 039***
+Successfully entered password (hidden for security)
+Login form submitted successfully
+[CLICK] Trying to click product: "Levents® Triple Star Corduroy Classic Cap" with selector: a[href*="/products/"]:has-text("Levents"):not(:has(img)) >> visible=true
+[OK] Successfully navigated to product: https://www.levents.asia/products/levents-triple-star-corduroy-classic-cap
+Found "Thêm vào giỏ" button
+Successfully clicked "Thêm vào giỏ" button
+ Trying cart selector: img[alt*="CART"]
+ Trying cart selector: //*[contains(@class, "cart")][contains(@class, "icon")]
+Navigating to: https://www.levents.asia//cart
+Successfully navigated to: https://www.levents.asia//cart
+ Cart items: 0
