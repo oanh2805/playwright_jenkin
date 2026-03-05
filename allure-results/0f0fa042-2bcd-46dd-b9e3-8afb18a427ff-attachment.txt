@@ -1,0 +1,4 @@
+Successfully entered phone number: 039***
+Successfully entered password (hidden for security)
+Login form submitted successfully
+Selected product: Levents® Seasonal Hoodie Boxy

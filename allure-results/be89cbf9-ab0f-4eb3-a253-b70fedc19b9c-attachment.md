@@ -1,0 +1,387 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e6]:
+      - paragraph [ref=e11]: FOR DREAMERS ONLY
+      - paragraph [ref=e16]: LAUNCHING LEVENTS X HELLO KITTY - FANTASY COLLECTION
+    - generic [ref=e17]:
+      - img "Logo shape" [ref=e21] [cursor=pointer]
+      - link "BLACK_2" [ref=e22] [cursor=pointer]:
+        - /url: /
+        - img "BLACK_2" [ref=e30]
+      - generic [ref=e31] [cursor=pointer]:
+        - generic [ref=e33]:
+          - img "img-CART-ICON-a3msd19f" [ref=e34]
+          - generic [ref=e35]: "0"
+        - img [ref=e41]
+      - generic [ref=e43]:
+        - img [ref=e45] [cursor=pointer]
+        - generic:
+          - textbox "Input search":
+            - /placeholder: ""
+    - generic [ref=e48]:
+      - link "Link to Home" [ref=e50] [cursor=pointer]:
+        - /url: /
+        - text: Home /
+      - link "Link to Levents® Seasonal Hoodie Boxy" [ref=e52] [cursor=pointer]:
+        - /url: ""
+        - text: Levents® Seasonal Hoodie Boxy
+    - generic [ref=e53]:
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - img "Levents® Seasonal Hoodie Boxy_0" [ref=e59]
+            - img "Levents® Seasonal Hoodie Boxy_1" [ref=e61]
+            - img "Levents® Seasonal Hoodie Boxy_2" [ref=e63]
+            - img "Levents® Seasonal Hoodie Boxy_3" [ref=e65]
+            - img "Levents® Seasonal Hoodie Boxy_4" [ref=e67]
+            - img "Levents® Seasonal Hoodie Boxy_0" [ref=e69]
+            - img "Levents® Seasonal Hoodie Boxy_4" [ref=e71]
+          - img [ref=e73] [cursor=pointer]
+          - img [ref=e76] [cursor=pointer]
+        - generic [ref=e96]:
+          - img "Levents® Seasonal Hoodie Boxy_mini_0" [ref=e98] [cursor=pointer]
+          - img "Levents® Seasonal Hoodie Boxy_mini_1" [ref=e100] [cursor=pointer]
+          - img "Levents® Seasonal Hoodie Boxy_mini_2" [ref=e102] [cursor=pointer]
+          - img "Levents® Seasonal Hoodie Boxy_mini_3" [ref=e104] [cursor=pointer]
+          - img "Levents® Seasonal Hoodie Boxy_mini_4" [ref=e106] [cursor=pointer]
+      - generic [ref=e108] [cursor=pointer]:
+        - paragraph [ref=e111]: levents-asia
+        - paragraph [ref=e113]: Levents® Seasonal Hoodie Boxy
+        - paragraph [ref=e116]: 820.000 VND
+        - paragraph [ref=e122]: Voucher của Levents
+        - generic [ref=e125]:
+          - paragraph [ref=e127]: Color
+          - paragraph [ref=e129]: Black
+          - generic [ref=e131]:
+            - img "Black" [ref=e133]
+            - img "Grey" [ref=e135]
+        - generic [ref=e136]:
+          - paragraph [ref=e138]: Size
+          - generic [ref=e140]:
+            - generic [ref=e141]: Size 2
+            - generic [ref=e142]: Size 3
+            - generic [ref=e143]: Size 4
+        - generic [ref=e144]:
+          - img "size-chart" [ref=e153]
+          - heading "Bảng size" [level=5] [ref=e155]
+        - generic [ref=e156]:
+          - heading "Số lượng" [level=6] [ref=e158]
+          - generic [ref=e160]:
+            - button "Quantity input minus" [ref=e161]:
+              - img [ref=e162]
+            - spinbutton "Quantity input" [ref=e164]: "1"
+            - button "Quantity input plus" [ref=e165]:
+              - img [ref=e166]
+        - generic [ref=e170]: Thêm vào giỏ
+        - generic [ref=e173]: Mua ngay
+        - generic [ref=e174]:
+          - heading "Thông tin sản phẩm" [level=6] [ref=e176]
+          - paragraph [ref=e180]:
+            - paragraph [ref=e181]: Logo Levents được cách điệu và đính nổi bằng chất liệu vải dạ, với đường thêu zigzag viền quanh chữ tạo hiệu ứng thủ công nổi bật.
+        - generic [ref=e182]:
+          - paragraph [ref=e185]: Chính sách vận chuyển
+          - generic [ref=e187]:
+            - text: Giao hàng tiêu chuẩn từ 2-3 ngày
+            - paragraph
+        - generic [ref=e190]:
+          - paragraph [ref=e193]: Chính sách đổi trả
+          - generic [ref=e195]:
+            - text: Đổi hàng trong vòng 14 ngày kể từ ngày nhận bưu phẩm
+            - paragraph
+    - generic [ref=e198]:
+      - link "Best seller" [ref=e199] [cursor=pointer]:
+        - /url: /categories/best-sellers
+        - heading "Best seller" [level=5] [ref=e200]
+      - generic [ref=e201]:
+        - generic [ref=e202]:
+          - generic [ref=e203]:
+            - link "Product image - Levents® Dream Maker Semi-Oversized Tee" [ref=e205] [cursor=pointer]:
+              - /url: /products/levents-dream-maker-semi-oversized-tee
+              - img "Levents® Dream Maker Semi-Oversized Tee" [ref=e207]
+            - generic [ref=e208]:
+              - generic [ref=e210]:
+                - img "White" [ref=e212] [cursor=pointer]
+                - img "White Navy" [ref=e214] [cursor=pointer]
+                - img "Grey Red" [ref=e216] [cursor=pointer]
+                - img "Black Pink" [ref=e218] [cursor=pointer]
+                - img "Red" [ref=e220] [cursor=pointer]
+                - img "Pink" [ref=e222] [cursor=pointer]
+                - img "Black" [ref=e224] [cursor=pointer]
+              - link "Link to Levents® Dream Maker Semi-Oversized Tee" [ref=e226] [cursor=pointer]:
+                - /url: /products/levents-dream-maker-semi-oversized-tee
+                - generic [ref=e227]: Levents® Dream Maker Semi-Oversized Tee
+              - generic [ref=e228]: 520.000 VND
+          - generic [ref=e229]:
+            - link "Product image - Levents® Polkadot Raglan Long Sleeve Boxy Tee/ Black" [ref=e231] [cursor=pointer]:
+              - /url: /products/levents-polkadot-raglan-long-sleeve-boxy-tee-black
+              - img "Levents® Polkadot Raglan Long Sleeve Boxy Tee/ Black" [ref=e233]
+            - generic [ref=e234]:
+              - img "Black" [ref=e238] [cursor=pointer]
+              - link "Link to Levents® Polkadot Raglan Long Sleeve Boxy Tee/ Black" [ref=e240] [cursor=pointer]:
+                - /url: /products/levents-polkadot-raglan-long-sleeve-boxy-tee-black
+                - generic [ref=e241]: Levents® Polkadot Raglan Long Sleeve Boxy Tee/ Black
+              - generic [ref=e242]: 720.000 VND
+          - generic [ref=e243]:
+            - link "Product image - Levents® x Hello Kitty | Joy Icon Long Sleeve Boxy Tee/ Grey" [ref=e245] [cursor=pointer]:
+              - /url: /products/levents-x-hello-kitty-joy-icon-long-sleeve-boxy-tee-grey
+              - img "Levents® x Hello Kitty | Joy Icon Long Sleeve Boxy Tee/ Grey" [ref=e247]
+            - generic [ref=e248]:
+              - img "Grey" [ref=e252] [cursor=pointer]
+              - link "Link to Levents® x Hello Kitty | Joy Icon Long Sleeve Boxy Tee/ Grey" [ref=e254] [cursor=pointer]:
+                - /url: /products/levents-x-hello-kitty-joy-icon-long-sleeve-boxy-tee-grey
+                - generic [ref=e255]: Levents® x Hello Kitty | Joy Icon Long Sleeve Boxy Tee/ Grey
+              - generic [ref=e256]: 750.000 VND
+          - generic [ref=e257]:
+            - link "Product image - Levents® x Hello Kitty | Striped Boxy Tee/ Blue" [ref=e259] [cursor=pointer]:
+              - /url: /products/levents-x-hello-kitty-striped-boxy-tee-blue
+              - img "Levents® x Hello Kitty | Striped Boxy Tee/ Blue" [ref=e261]
+            - generic [ref=e262]:
+              - img "Blue" [ref=e266] [cursor=pointer]
+              - link "Link to Levents® x Hello Kitty | Striped Boxy Tee/ Blue" [ref=e268] [cursor=pointer]:
+                - /url: /products/levents-x-hello-kitty-striped-boxy-tee-blue
+                - generic [ref=e269]: Levents® x Hello Kitty | Striped Boxy Tee/ Blue
+              - generic [ref=e270]: 680.000 VND
+          - generic [ref=e271]:
+            - link "Product image - Levents® Sakura Signature Logo Semi-Oversized Tee" [ref=e273] [cursor=pointer]:
+              - /url: /products/levents-sakura-signature-logo-semi-oversized-tee
+            - generic [ref=e275]:
+              - link "Link to Levents® Sakura Signature Logo Semi-Oversized Tee" [ref=e281] [cursor=pointer]:
+                - /url: /products/levents-sakura-signature-logo-semi-oversized-tee
+                - generic [ref=e282]: Levents® Sakura Signature Logo Semi-Oversized Tee
+              - generic [ref=e283]: 550.000 VND
+          - generic [ref=e284]:
+            - link "Product image - Levents® Travel Cities Long Sleeve Boxy Tee" [ref=e286] [cursor=pointer]:
+              - /url: /products/levents-travel-cities-long-sleeve-boxy-tee
+            - generic [ref=e288]:
+              - link "Link to Levents® Travel Cities Long Sleeve Boxy Tee" [ref=e294] [cursor=pointer]:
+                - /url: /products/levents-travel-cities-long-sleeve-boxy-tee
+                - generic [ref=e295]: Levents® Travel Cities Long Sleeve Boxy Tee
+              - generic [ref=e296]: 750.000 VND
+          - generic [ref=e297]:
+            - link "Product image - Levents® Blink Blink XL Logo Oversized Tee/ Black" [ref=e299] [cursor=pointer]:
+              - /url: /products/levents-blink-blink-xl-logo-oversized-tee-black
+            - generic [ref=e301]:
+              - link "Link to Levents® Blink Blink XL Logo Oversized Tee/ Black" [ref=e306] [cursor=pointer]:
+                - /url: /products/levents-blink-blink-xl-logo-oversized-tee-black
+                - generic [ref=e307]: Levents® Blink Blink XL Logo Oversized Tee/ Black
+              - generic [ref=e308]: 550.000 VND
+          - generic [ref=e309]:
+            - link "Product image - Levents® Triple Star Classic Shorts" [ref=e311] [cursor=pointer]:
+              - /url: /products/levents-triple-star-classic-shorts
+            - generic [ref=e313]:
+              - link "Link to Levents® Triple Star Classic Shorts" [ref=e321] [cursor=pointer]:
+                - /url: /products/levents-triple-star-classic-shorts
+                - generic [ref=e322]: Levents® Triple Star Classic Shorts
+              - generic [ref=e323]: 500.000 VND
+          - generic [ref=e324]:
+            - link "Product image - Levents® x Hello Kitty | Joy Icon Heavyweight Raglan Long Sleeve Boxy Tee/ Navy" [ref=e326] [cursor=pointer]:
+              - /url: /products/levents-x-hello-kitty-joy-icon-heavyweight-raglan-long-sleeve-boxy-tee-navy
+            - generic [ref=e328]:
+              - link "Link to Levents® x Hello Kitty | Joy Icon Heavyweight Raglan Long Sleeve Boxy Tee/ Navy" [ref=e333] [cursor=pointer]:
+                - /url: /products/levents-x-hello-kitty-joy-icon-heavyweight-raglan-long-sleeve-boxy-tee-navy
+                - generic [ref=e334]: Levents® x Hello Kitty | Joy Icon Heavyweight Raglan Long Sleeve Boxy Tee/ Navy
+              - generic [ref=e335]: 820.000 VND
+        - button "Slider product navigation next" [ref=e336] [cursor=pointer]:
+          - img [ref=e337]
+    - generic [ref=e339]:
+      - link "new arrival" [ref=e340] [cursor=pointer]:
+        - /url: /categories/new-arrival
+        - heading "new arrival" [level=5] [ref=e341]
+      - generic [ref=e342]:
+        - generic [ref=e343]:
+          - generic [ref=e344]:
+            - link "Product image - Levents® Triple Star Corduroy Classic Cap" [ref=e346] [cursor=pointer]:
+              - /url: /products/levents-triple-star-corduroy-classic-cap
+              - img "Levents® Triple Star Corduroy Classic Cap" [ref=e348]
+            - generic [ref=e349]:
+              - link "Link to Levents® Triple Star Corduroy Classic Cap" [ref=e354] [cursor=pointer]:
+                - /url: /products/levents-triple-star-corduroy-classic-cap
+                - generic [ref=e355]: Levents® Triple Star Corduroy Classic Cap
+              - generic [ref=e356]: 580.000 VND
+          - generic [ref=e357]:
+            - link "Product image - Levents® Rhinestone Long Sleeve Boxy Tee" [ref=e359] [cursor=pointer]:
+              - /url: /products/levents-rhinestone-long-sleeve-boxy-tee
+              - img "Levents® Rhinestone Long Sleeve Boxy Tee" [ref=e361]
+            - generic [ref=e362]:
+              - link "Link to Levents® Rhinestone Long Sleeve Boxy Tee" [ref=e368] [cursor=pointer]:
+                - /url: /products/levents-rhinestone-long-sleeve-boxy-tee
+                - generic [ref=e369]: Levents® Rhinestone Long Sleeve Boxy Tee
+              - generic [ref=e370]: 720.000 VND
+          - generic [ref=e371]:
+            - link "Product image - Levents® Seasonal Hoodie Boxy" [ref=e373] [cursor=pointer]:
+              - /url: /products/levents-seasonal-hoodie-boxy
+              - img "Levents® Seasonal Hoodie Boxy" [ref=e375]
+            - generic [ref=e376]:
+              - link "Link to Levents® Seasonal Hoodie Boxy" [ref=e382] [cursor=pointer]:
+                - /url: /products/levents-seasonal-hoodie-boxy
+                - generic [ref=e383]: Levents® Seasonal Hoodie Boxy
+              - generic [ref=e384]: 820.000 VND
+          - generic [ref=e385]:
+            - link "Product image - Levents® XL Logo Boxy Sweater" [ref=e387] [cursor=pointer]:
+              - /url: /products/levents-xl-logo-boxy-sweater
+              - img "Levents® XL Logo Boxy Sweater" [ref=e389]
+            - generic [ref=e390]:
+              - link "Link to Levents® XL Logo Boxy Sweater" [ref=e398] [cursor=pointer]:
+                - /url: /products/levents-xl-logo-boxy-sweater
+                - generic [ref=e399]: Levents® XL Logo Boxy Sweater
+              - generic [ref=e400]: 780.000 VND
+          - generic [ref=e401]:
+            - link "Product image - Levents® Sakura Signature Logo Semi-Oversized Tee" [ref=e403] [cursor=pointer]:
+              - /url: /products/levents-sakura-signature-logo-semi-oversized-tee
+            - generic [ref=e405]:
+              - link "Link to Levents® Sakura Signature Logo Semi-Oversized Tee" [ref=e411] [cursor=pointer]:
+                - /url: /products/levents-sakura-signature-logo-semi-oversized-tee
+                - generic [ref=e412]: Levents® Sakura Signature Logo Semi-Oversized Tee
+              - generic [ref=e413]: 550.000 VND
+          - generic [ref=e414]:
+            - generic [ref=e415]:
+              - link "Product image - Levents® Sakura Heavyweight Long Sleeve Boxy Tee" [ref=e416] [cursor=pointer]:
+                - /url: /products/levents-sakura-heavyweight-long-sleeve-boxy-tee
+              - generic [ref=e419]: SOLD OUT
+            - generic [ref=e420]:
+              - link "Link to Levents® Sakura Heavyweight Long Sleeve Boxy Tee" [ref=e422] [cursor=pointer]:
+                - /url: /products/levents-sakura-heavyweight-long-sleeve-boxy-tee
+                - generic [ref=e423]: Levents® Sakura Heavyweight Long Sleeve Boxy Tee
+              - generic [ref=e424]: 720.000 VND
+          - generic [ref=e425]:
+            - generic [ref=e426]:
+              - link "Product image - Levents® Sakura Heavyweight Semi-Oversized Tee" [ref=e427] [cursor=pointer]:
+                - /url: /products/levents-sakura-heavyweight-semi-oversized-tee
+              - generic [ref=e430]: SOLD OUT
+            - generic [ref=e431]:
+              - link "Link to Levents® Sakura Heavyweight Semi-Oversized Tee" [ref=e433] [cursor=pointer]:
+                - /url: /products/levents-sakura-heavyweight-semi-oversized-tee
+                - generic [ref=e434]: Levents® Sakura Heavyweight Semi-Oversized Tee
+              - generic [ref=e435]: 580.000 VND
+          - generic [ref=e436]:
+            - link "Product image - Levents® Sakura Classic Cap" [ref=e438] [cursor=pointer]:
+              - /url: /products/levents-sakura-classic-cap
+            - generic [ref=e440]:
+              - link "Link to Levents® Sakura Classic Cap" [ref=e446] [cursor=pointer]:
+                - /url: /products/levents-sakura-classic-cap
+                - generic [ref=e447]: Levents® Sakura Classic Cap
+              - generic [ref=e448]: 520.000 VND
+          - generic [ref=e449]:
+            - link "Product image - Levents® x Hello Kitty | Joy Icon Lightweight Raglan Regular Tee/ Red" [ref=e451] [cursor=pointer]:
+              - /url: /products/levents-x-hello-kitty-joy-icon-lightweight-raglan-regular-tee-red
+            - generic [ref=e453]:
+              - link "Link to Levents® x Hello Kitty | Joy Icon Lightweight Raglan Regular Tee/ Red" [ref=e458] [cursor=pointer]:
+                - /url: /products/levents-x-hello-kitty-joy-icon-lightweight-raglan-regular-tee-red
+                - generic [ref=e459]: Levents® x Hello Kitty | Joy Icon Lightweight Raglan Regular Tee/ Red
+              - generic [ref=e460]: 620.000 VND
+        - button "Slider product navigation next" [ref=e461] [cursor=pointer]:
+          - img [ref=e462]
+    - generic [ref=e465] [cursor=pointer]:
+      - generic [ref=e466]:
+        - link "Xem ngay" [ref=e475]:
+          - /url: /about-us
+          - generic [ref=e477]: Xem ngay
+        - link "Open link http://online.gov.vn/Website/chi-tiet-138391" [ref=e478]:
+          - /url: http://online.gov.vn/Website/chi-tiet-138391
+      - generic [ref=e486]:
+        - generic [ref=e487]:
+          - generic [ref=e488]:
+            - heading "Hotline" [level=6] [ref=e490]
+            - heading "1900 633 028" [level=6] [ref=e492]
+          - generic [ref=e493]:
+            - paragraph [ref=e496]: Email for customer
+            - paragraph [ref=e499]: customercare@levents.asia
+          - generic [ref=e500]:
+            - paragraph [ref=e503]: Email for business
+            - paragraph [ref=e506]: business@levents.asia
+          - generic [ref=e507]:
+            - paragraph [ref=e510]: Email for recruitment
+            - paragraph [ref=e513]: hr-admin@levents.asia
+          - generic [ref=e514]:
+            - link "Open link https://www.facebook.com/Leventsbrand" [ref=e515]:
+              - /url: https://www.facebook.com/Leventsbrand
+            - link "Open link https://www.instagram.com/levents.official/" [ref=e523]:
+              - /url: https://www.instagram.com/levents.official/
+            - link "Open link https://m.youtube.com/channel/UChl4KY_EpOg4GAjrtKlu_vw" [ref=e531]:
+              - /url: https://m.youtube.com/channel/UChl4KY_EpOg4GAjrtKlu_vw
+            - link "Open link https://www.tiktok.com/@levents.vn" [ref=e539]:
+              - /url: https://www.tiktok.com/@levents.vn
+        - heading "Liên hệ" [level=6] [ref=e549]
+      - generic [ref=e552]:
+        - generic [ref=e553]:
+          - link "139E Nguyễn Trãi, Phường Bến Thành, TP Hồ Chí Minh" [ref=e554]:
+            - /url: /nguyen-trai-quan-1
+            - generic [ref=e555]: 139E Nguyễn Trãi, Phường Bến Thành, TP Hồ Chí Minh
+          - link "Vincom Center, 72 Đồng Khởi, Phường Sài Gòn, TP Hồ Chí Minh" [ref=e556]:
+            - /url: /vincom-center-dong-khoi-quan-1
+            - paragraph [ref=e558]: Vincom Center, 72 Đồng Khởi, Phường Sài Gòn, TP Hồ Chí Minh
+          - link "842 Sư Vạn Hạnh, Phường Hòa Hưng, TP Hồ Chí Minh" [ref=e559]:
+            - /url: /su-van-hanh-quan-10
+            - paragraph [ref=e561]: 842 Sư Vạn Hạnh, Phường Hòa Hưng, TP Hồ Chí Minh
+          - link "45 Mậu Thân, Phường Ninh Kiều, TP Cần Thơ" [ref=e562]:
+            - /url: /mau-than-can-tho
+            - paragraph [ref=e564]: 45 Mậu Thân, Phường Ninh Kiều, TP Cần Thơ
+          - link "128 Phan Trung, Phường Tam Hiệp, Tỉnh Đồng Nai" [ref=e565]:
+            - /url: /phan-trung-dong-nai
+            - paragraph [ref=e567]: 128 Phan Trung, Phường Tam Hiệp, Tỉnh Đồng Nai
+          - paragraph [ref=e570]: "CÔNG TY CỔ PHẦN LEVENTS GLOBAL MST: 0316737985"
+        - heading "Cửa hàng" [level=6] [ref=e573]
+      - generic [ref=e576]:
+        - generic [ref=e577]:
+          - link "Levents® Membership" [ref=e578]:
+            - /url: /leventsregistered-membership
+            - paragraph [ref=e580]: Levents® Membership
+          - paragraph [ref=e583]: Easy shopping
+          - link "Tài khoản" [ref=e584]:
+            - /url: /login
+            - paragraph [ref=e586]: Tài khoản
+          - link "Hướng dẫn đo size" [ref=e587]:
+            - /url: /huong-dan-chon-size
+            - paragraph [ref=e589]: Hướng dẫn đo size
+          - link "Chính sách đổi trả" [ref=e590]:
+            - /url: /chinh-sach-doi-tra
+            - paragraph [ref=e592]: Chính sách đổi trả
+          - link "Chính sách vận chuyển" [ref=e593]:
+            - /url: /chinh-sach-van-chuyen
+            - paragraph [ref=e595]: Chính sách vận chuyển
+          - link "Chính sách bảo hành" [ref=e596]:
+            - /url: /chinh-sach-bao-hanh
+            - paragraph [ref=e598]: Chính sách bảo hành
+          - link "Hướng dẫn mua hàng" [ref=e599]:
+            - /url: /huong-dan-mua-hang-thanh-toan
+            - paragraph [ref=e601]: Hướng dẫn mua hàng
+          - link "Hướng dẫn bảo quản" [ref=e602]:
+            - /url: /huong-dan-bao-quan
+            - paragraph [ref=e604]: Hướng dẫn bảo quản
+          - link "Chính sách bảo mật" [ref=e605]:
+            - /url: /chinh-sach-bao-mat-thong-tin
+            - paragraph [ref=e607]: Chính sách bảo mật
+        - heading "Hỗ trợ" [level=6] [ref=e610]
+      - generic [ref=e613]:
+        - generic [ref=e614]:
+          - link "Tuyển dụng" [ref=e615]:
+            - /url: /recruitment
+            - paragraph [ref=e617]: Tuyển dụng
+          - link "Outfit" [ref=e618]:
+            - /url: /category-outfit
+            - paragraph [ref=e620]: Outfit
+          - link "Crew" [ref=e621]:
+            - /url: /levents-crew
+            - paragraph [ref=e623]: Crew
+        - heading "Mở rộng" [level=6] [ref=e626]
+      - generic [ref=e629]:
+        - heading "CÔNG TY CỔ PHẦN LEVENTS GLOBAL" [level=6] [ref=e632]
+        - 'link "• Mã số doanh nghiệp: 0316737985 do Phòng Tài chính - Kế hoạch UBND Thành phố Hồ Chí Minh cấp lần đầu ngày 11/03/2021 • Địa chỉ: L17-11 Tầng 17, Tòa nhà Vincom Center, 72 Lê Thánh Tôn, Phường Sài Gòn, Thành phố Hồ Chí Minh, Việt Nam • Điện thoại: 028 888 99 616 • Email: business@levents.asia" [ref=e633]':
+          - /url: /vincom-center-dong-khoi-quan-1
+          - generic [ref=e634]:
+            - list [ref=e635]:
+              - listitem [ref=e636]: "• Mã số doanh nghiệp: 0316737985 do Phòng Tài chính - Kế hoạch UBND Thành phố Hồ Chí Minh cấp lần đầu ngày 11/03/2021"
+            - paragraph [ref=e637]
+            - list [ref=e638]:
+              - listitem [ref=e639]: "• Địa chỉ: L17-11 Tầng 17, Tòa nhà Vincom Center, 72 Lê Thánh Tôn, Phường Sài Gòn, Thành phố Hồ Chí Minh, Việt Nam"
+            - paragraph [ref=e640]
+            - list [ref=e641]:
+              - listitem [ref=e642]: "• Điện thoại: 028 888 99 616"
+            - paragraph [ref=e643]
+            - list [ref=e644]:
+              - listitem [ref=e645]: "• Email: business@levents.asia"
+  - img [ref=e653] [cursor=pointer]
+```
