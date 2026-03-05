@@ -21,7 +21,7 @@ pipeline {
         stage('Install Playwright Browsers') {
             steps {
                 // Cài đặt browser và các dependencies hệ thống cần thiết
-                sh 'npx playwright install chromium --with-deps'
+                sh 'npx playwright install chromium'
             }
         }
 
