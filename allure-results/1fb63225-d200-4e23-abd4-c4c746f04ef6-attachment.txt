@@ -1,5 +1,0 @@
-Successfully entered phone number: 039***
-Successfully entered password (hidden for security)
-Login form submitted successfully
-Navigating to: https://www.levents.asia//cart
-Successfully navigated to: https://www.levents.asia//cart
