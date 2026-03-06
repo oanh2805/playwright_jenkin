@@ -8,20 +8,8 @@ $env:ENV="qa"; npx playwright test --project=webkit-desktopwebkit-desktop
 
 --Chạy trên STG với Firefox:
 $env:ENV="stg"; npx playwright test --project=firefox-desktop:
-
-2. push src code lên gitlab 
-3. tạo 1 Jenkins pipeline execute ở trên đấy + Jenkins chạy bằng docker
-run các lệnh sau:
-docker run -d 
-// --name jenkins 
-// -p 8080:8080 
-// -p 50000:50000 
-// -v jenkins_home:/var/jenkins_home 
-// -e TZ=Asia/Ho_Chi_Minh 
-// jenkins/jenkins:lts-jdk17 
-(Docker sẽ lên Docker Hub pull về image)
-
-Open docker desktop -> start container -> Access localhost:8080 to open Jenkins dashboard
+2. push src code
+3. jenkins + docker
 
 
 
