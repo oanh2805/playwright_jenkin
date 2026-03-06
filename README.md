@@ -1,3 +1,33 @@
+# CICD
+1. Có 3 môi trường: QA - STG - DEV và sẽ run trên 3 loại browser: Chrome - Firefox - Safari, triển khai quản lý source để user có thể chọn môi trường và browser để execute (run in = cmd):
+- Ví dụ: 
+--Chạy trên QA lần lượt với Chrome | Firefox | Safari:
+$env:ENV="qa"; npx playwright test --project=chromium-desktop 
+$env:ENV="qa"; npx playwright test --project=firefox-desktop 
+$env:ENV="qa"; npx playwright test --project=webkit-desktopwebkit-desktop 
+
+--Chạy trên STG với Firefox:
+$env:ENV="stg"; npx playwright test --project=firefox-desktop:
+
+2. push src code lên gitlab 
+3. tạo 1 Jenkins pipeline execute ở trên đấy + Jenkins chạy bằng docker
+run các lệnh sau:
+docker run -d 
+// --name jenkins 
+// -p 8080:8080 
+// -p 50000:50000 
+// -v jenkins_home:/var/jenkins_home 
+// -e TZ=Asia/Ho_Chi_Minh 
+// jenkins/jenkins:lts-jdk17 
+(Docker sẽ lên Docker Hub pull về image)
+
+Open docker desktop -> start container -> Access localhost:8080 to open Jenkins dashboard
+
+
+
+
+
+
 # Playwright TypeScript E2E Testing Framework
 
 A comprehensive end-to-end testing framework built with Playwright, TypeScript, Cucumber, and Allure reporting for automated testing of the Levents e-commerce application.
