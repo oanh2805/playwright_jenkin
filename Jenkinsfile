@@ -90,7 +90,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    echo "🐳 Building Docker image: ${IMAGE_NAME}"
+                    echo "Building Docker image: ${IMAGE_NAME}"
                     sh """
                         docker build -t ${IMAGE_NAME} -f Dockerfile .
                     """
@@ -128,7 +128,7 @@ pipeline {
             }
             post {
                 always {
-                    echo "📊 Collecting test results..."
+                    echo "Collecting test results..."
                     archiveArtifacts artifacts: 'allure-results/**,test-results/**', allowEmptyArchive: true
                 }
                 failure {
@@ -138,9 +138,6 @@ pipeline {
         }
         
         stage('Generate Allure Report') {
-            when {
-                always()
-            }
             steps {
                 script {
                     sh "echo '📈 Generating Allure Report...'"
