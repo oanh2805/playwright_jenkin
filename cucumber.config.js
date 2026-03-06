@@ -36,7 +36,7 @@ const config = {
         baseUrl: process.env.BASE_URL || 'https://www.levents.asia/',
         
         // Browser configuration
-        browser: process.env.BROWSER || 'chromium',
+        browser: process.env.BROWSER || 'firefox',
         slowMo: parseInt(process.env.SLOW_MO || '0', 10),
         timeout: parseInt(process.env.APP_TIMEOUT || '30000', 10),
         

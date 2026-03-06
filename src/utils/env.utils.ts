@@ -128,7 +128,7 @@ export class EnvUtils {
         timeout: number 
     } {
         return {
-            browser: this.get('BROWSER', 'chromium'),
+            browser: this.get('BROWSER', 'firefox'),
             headed: this.getBoolean('HEADED', false),
             slowMo: this.getNumber('SLOW_MO', 0),
             timeout: this.getNumber('APP_TIMEOUT', 30000)

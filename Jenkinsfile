@@ -21,8 +21,8 @@ pipeline {
         )
         choice(
             name: 'BROWSER',
-            choices: ['chromium', 'firefox', 'webkit'],
-            description: 'Browser to use (chromium, firefox, webkit)'
+            choices: ['firefox', 'webkit'],
+            description: 'Browser to use (firefox, webkit)'
         )
     }
     

@@ -51,7 +51,7 @@ export class CustomWorld extends World {
             env: options.parameters?.env || process.env.ENV || 'default',
             headless: options.parameters?.headless !== false,
             baseUrl: options.parameters?.baseUrl || this.envUtils.getBaseUrl(),
-            browser: options.parameters?.browser || this.envUtils.get('BROWSER', 'chromium'),
+            browser: options.parameters?.browser || this.envUtils.get('BROWSER', 'firefox'),
             slowMo: options.parameters?.slowMo || this.envUtils.getNumber('SLOW_MO', 0),
             timeout: options.parameters?.timeout || this.envUtils.getNumber('APP_TIMEOUT', 30000),
             screenshotOnFailure: options.parameters?.screenshotOnFailure !== false,
@@ -138,10 +138,8 @@ export class CustomWorld extends World {
             case 'webkit':
             case 'safari':
                 return await webkit.launch(launchOptions);
-            case 'chromium':
-            case 'chrome':
             default:
-                return await chromium.launch(launchOptions);
+                return await firefox.launch(launchOptions);
         }
     }
 

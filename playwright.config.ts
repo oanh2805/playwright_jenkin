@@ -128,25 +128,6 @@ export default defineConfig({
  
   // Project configuration for 3 desktop browsers
   projects: [
-    // Chromium Desktop
-    {
-      name: 'chromium-desktop',
-      use: {
-        ...devices['Desktop Chrome'],
-        channel: envUtils.get('CHROMIUM_CHANNEL', 'chrome'),
-        launchOptions: {
-          args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-web-security',
-            '--allow-running-insecure-content',
-            '--disable-features=VizDisplayCompositor'
-          ],
-          slowMo: envUtils.getNumber('SLOW_MO', 0)
-        }
-      },
-    },
  
     // Firefox Desktop  
     {
