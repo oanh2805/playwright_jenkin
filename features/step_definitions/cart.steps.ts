@@ -5,10 +5,11 @@ import { CustomWorld } from '../support/world';
 // ====== Background Step ======
 
 Given('I am logged in to the application', async function (this: CustomWorld) {
+    await this.navigateToApp();
+    
     // 1. Navigate to login page
     await this.homePage.navigateToLoginFromHeader();
     
-    // Đợi một chút cho trang ổn định (giống logic trong cart.test.ts)
     await this.page.waitForTimeout(2000);
     
     // 2. Perform login
@@ -53,7 +54,7 @@ Then('the cart items count should be greater than zero', async function (this: C
     const cartItemsCount = await this.cartPage.getCartItemsCount();
     console.log(`Cart items count: ${cartItemsCount}`);
     
-    // Khẳng định (Assert) số lượng trong giỏ hàng phải > 0
+    // Assert số lượng trong giỏ hàng phải > 0
     expect(
         cartItemsCount, 
         'Cart should contain at least 1 item after adding a product'

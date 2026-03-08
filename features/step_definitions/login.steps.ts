@@ -2,76 +2,47 @@ import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 import { CustomWorld } from '../support/world';
 
-// ====== Background and Navigation Steps ======
+// ====== Background Step ======
 
 Given('I am on the Levents homepage', async function (this: CustomWorld) {
     await this.navigateToApp();
     await this.homePage.verifyPageIsLoaded();
 });
 
-Given('I navigate to the login page', async function (this: CustomWorld) {
-    await this.loginPage.navigateToLogin();
-});
+// ====== Action Steps ======
 
-// ====== Input Steps ======
+When('I navigate to the login page from homepage', async function (this: CustomWorld) {
+    await this.homePage.navigateToLoginFromHeader();
+});
 
 When('I enter valid phone number and password', async function (this: CustomWorld) {
     const credentials = this.getTestCredentials();
-    await this.loginPage.enterPhoneNumber(credentials.phone);
-    await this.loginPage.enterPassword(credentials.password);
+    // Hàm performLogin bao gồm điền sđt, điền pass và click nút đăng nhập
+    await this.loginPage.performLogin(credentials.phone, credentials.password);
 });
 
-When('I enter valid phone number', async function (this: CustomWorld) {
+When('I enter invalid credentials', async function (this: CustomWorld) {
     const credentials = this.getTestCredentials();
-    await this.loginPage.enterPhoneNumber(credentials.phone);
+    // Cố tình sai sđt và mật khẩu
+    const invalidPhone = `${credentials.phone}999`;
+    const invalidPassword = `${credentials.password}invalid`;
+    
+    await this.loginPage.performLogin(invalidPhone, invalidPassword);
 });
 
-When('I enter valid password', async function (this: CustomWorld) {
-    const credentials = this.getTestCredentials();
-    await this.loginPage.enterPassword(credentials.password);
-});
-
-When('I enter invalid phone number {string}', async function (this: CustomWorld, invalidPhone: string) {
-    await this.loginPage.enterPhoneNumber(invalidPhone);
-});
-
-When('I enter invalid password {string}', async function (this: CustomWorld, invalidPassword: string) {
-    await this.loginPage.enterPassword(invalidPassword);
-});
-
-// ====== Action Steps ======
-
-When('I click the login button', async function (this: CustomWorld) {
-    await this.loginPage.clickLoginButton();
-});
-
-// ====== Verification Steps - Success Cases ======
+// ====== Verification Steps ======
 
 Then('I should be successfully logged in', async function (this: CustomWorld) {
     await this.homePage.verifyLoginSuccess();
 });
 
-Then('I should see the homepage', async function (this: CustomWorld) {
-    await this.homePage.verifyPageIsLoaded();
-});
-
-Then('I should see user profile menu', async function (this: CustomWorld) {
-    const userMenuAvailable = await this.homePage.isUserMenuAvailable();
-    expect(userMenuAvailable, 'User profile menu should be visible after successful login').toBeTruthy();
-});
-
-// ====== Verification Steps - Error Cases ======
-
-Then('I should see an error message', async function (this: CustomWorld) {
-    const errorMessage = await this.loginPage.getLoginErrorMessage();
-    expect(errorMessage, 'Error message should be displayed for invalid login attempt').toBeTruthy();
-    expect(errorMessage.length, 'Error message should not be empty').toBeGreaterThan(0);
-});
-
 Then('I should remain on the login page', async function (this: CustomWorld) {
+    await this.page.waitForTimeout(1500);
     const currentUrl = this.getCurrentUrl();
+
+    // Assert URL vẫn đang chứa chữ login/signin
     expect(
         currentUrl.includes('/login') || currentUrl.includes('signin'),
-        `Expected to remain on login page. Current URL: ${currentUrl}`
+        `Expected to remain on login page for invalid credential. Current URL: ${currentUrl}`
     ).toBeTruthy();
 });
