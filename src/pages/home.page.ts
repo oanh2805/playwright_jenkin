@@ -26,18 +26,22 @@ export class HomePage extends BasePage {
                 timeout: this.timeout
             });
 
-            // Đợi cái nút Login trên Header xuất hiện
             await TestUtils.waitForElementVisible(this.page, this.link_HeaderLogin, this.timeout, 'Header Account/Login Link');
             
-            // Lấy đúng cái nút đó ra
             const loginLink = this.page.locator(this.link_HeaderLogin).first();
             
             // Fix lỗi Firefox: Bắt cuộn tới chỗ cái nút và dùng force: true để click xuyên mọi popup/quảng cáo
             await loginLink.scrollIntoViewIfNeeded();
+            
+            // FIX THÊM CHO WEBKIT: Đợi nửa giây (500ms) trước khi click để Webkit kịp nhận diện nút trên giao diện
+            await this.page.waitForTimeout(500);
             await loginLink.click({ force: true });
             
-            // Đợi URL chuyển sang trang login (dùng hàm chuẩn của Playwright)
-            await this.page.waitForURL('**/login**', { timeout: this.timeout });
+            // FIX THÊM CHO WEBKIT: Thêm waitUntil: 'commit' để vừa nhảy URL là pass luôn, không đợi tải ảnh/font trang login
+            await this.page.waitForURL('**/login**', { 
+                timeout: this.timeout,
+                waitUntil: 'commit' 
+            });
             
         } catch (error) {
             await this.captureScreenshot('navigate_to_login_from_header_error');
