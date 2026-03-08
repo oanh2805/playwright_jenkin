@@ -107,7 +107,7 @@ pipeline {
     post {
         always {
             // Publish test results
-            junit testResults: 'test-results/junit-report.xml', allowEmptyResults: true
+            // junit testResults: 'test-results/junit-report.xml', allowEmptyResults: true
             
             // Clean up Docker image
             sh "docker rmi ${IMAGE_NAME} 2>/dev/null || true"

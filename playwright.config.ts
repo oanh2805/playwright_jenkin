@@ -58,7 +58,7 @@ export default defineConfig({
     ['list', { printSteps: true }],
    
     // JUnit reporter for CI integration
-    ['junit', { outputFile: 'test-results/junit-report.xml' }],
+    // ['junit', { outputFile: 'test-results/junit-report.xml' }],
    
     // JSON reporter for programmatic access
     ['json', { outputFile: 'test-results/test-results.json' }]
