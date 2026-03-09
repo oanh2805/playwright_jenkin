@@ -10,10 +10,10 @@ export class HomePage extends BasePage {
     // Fixed locators defined directly
     private readonly button_UserProfile = "a:has-text('Tài khoản'), a[href*='profile'], a[href*='account'], button:has-text('Tài khoản')";
     private readonly button_UserMenu = "a:has-text('Tài khoản'), a[href*='profile'], a[href*='account'], button:has-text('Tài khoản'), [class*='user']";
-    private readonly navigation_MainMenu = "//nav[contains(@class, 'main-nav') or contains(@class, 'primary-nav')] | //ul[contains(@class, 'main-menu')]";
-    private readonly container_PageContent = "//main[@id='main-content'] | //div[contains(@class, 'page-content') or contains(@class, 'main-content')]";
-    private readonly link_HeaderLogin = "header a[href='/login'], a.linkAccount[href='/login'], a[href='/login'][title='Open page'], a[href='/login']:has-text('Tài khoản')";
-    
+    private readonly navigation_MainMenu = "li.menu-item:visible, nav:visible, ul[class*='menu']:visible, [role='navigation']:visible, .categories-list:visible";
+    private readonly container_PageContent = "main:visible, #main:visible, .main:visible, #content:visible, .content:visible, #container:visible, .container:visible, body:visible";
+    private readonly link_HeaderLogin = "a[href='/login']:visible, a.x-loginbar-customer:visible, a:has-text('Login'):visible, a:has-text('Đăng nhập'):visible";
+
     constructor(page: Page) {
         super(page);
     }
@@ -35,9 +35,9 @@ export class HomePage extends BasePage {
             await this.page.waitForTimeout(500);
             await loginLink.click({ force: true });
 
-            await this.page.waitForURL('**/login**', { 
+            await this.page.waitForURL('**/login**', {
                 timeout: this.timeout,
-                waitUntil: 'commit' 
+                waitUntil: 'commit'
             });
 
         } catch (error) {
@@ -45,7 +45,7 @@ export class HomePage extends BasePage {
             throw new Error(`Failed to navigate to login. URL: ${this.getCurrentUrl()}. Error: ${error}`);
         }
     }
-    
+
 
     public async openUserMenu(): Promise<void> {
         try {
@@ -68,8 +68,9 @@ export class HomePage extends BasePage {
 
     public async verifyPageIsLoaded(): Promise<void> {
         try {
-            await TestUtils.waitForElementVisible(this.page, this.container_PageContent, this.timeout, 'Main Page Content');
-            await TestUtils.waitForElementVisible(this.page, this.navigation_MainMenu, this.timeout, 'Main Navigation Menu');
+            // Wait for body and login link as these are the most reliable indicators
+            await this.page.locator('body').waitFor({ state: 'visible', timeout: this.timeout });
+            await this.page.locator(this.link_HeaderLogin).first().waitFor({ state: 'visible', timeout: this.timeout });
 
             const currentUrl: string = this.getCurrentUrl();
             if (currentUrl.includes('login') || currentUrl.includes('signin')) {

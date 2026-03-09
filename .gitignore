@@ -12,3 +12,5 @@ node_modules/
 /allure-report/
 /test-results/
 /node_modules/
+/allure-results/
+/.playwright-mcp/

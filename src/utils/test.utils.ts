@@ -18,8 +18,8 @@ export class TestUtils {
      * @returns Screenshot file path
      */
     public static async captureScreenshot(
-        page: Page, 
-        testName: string, 
+        page: Page,
+        testName: string,
         step: string = 'screenshot'
     ): Promise<string> {
         try {
@@ -27,15 +27,15 @@ export class TestUtils {
             const screenshotDir: string = this.envUtils.get('SCREENSHOT_DIR', 'screenshots');
             const fileName: string = `${testName}_${step}_${timestamp}.png`;
             const filePath: string = path.join(screenshotDir, fileName);
-            
+
             // Ensure screenshot directory exists
             await this.ensureDirectoryExists(screenshotDir);
-            
-            await page.screenshot({ 
-                path: filePath, 
-                fullPage: false,  
-                timeout: 30000,  
-                animations: "disabled" 
+
+            await page.screenshot({
+                path: filePath,
+                fullPage: false,
+                timeout: 30000,
+                animations: "disabled"
             });
 
             return filePath;
@@ -87,9 +87,9 @@ export class TestUtils {
         errorContext: string = 'element'
     ): Promise<void> {
         try {
-            await page.locator(selector).waitFor({ 
-                state: 'visible', 
-                timeout 
+            await page.locator(selector).first().waitFor({
+                state: 'visible',
+                timeout
             });
             // Removed verbose log to reduce console noise
         } catch (error) {
@@ -109,7 +109,7 @@ export class TestUtils {
      * @param timeout - Timeout in milliseconds
      */
     public static async waitForPageLoad(
-        page: Page, 
+        page: Page,
         timeout: number = 30000
     ): Promise<void> {
         try {
@@ -133,9 +133,9 @@ export class TestUtils {
 
             for (const selector of loadingSelectors) {
                 try {
-                    await page.locator(selector).waitFor({ 
-                        state: 'hidden', 
-                        timeout: 5000 
+                    await page.locator(selector).waitFor({
+                        state: 'hidden',
+                        timeout: 5000
                     });
                 } catch {
                     // Ignore if loading indicator not found
@@ -166,7 +166,7 @@ export class TestUtils {
         retryDelay: number = 1000
     ): Promise<T> {
         let lastError: Error | null = null;
-        
+
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
             try {
                 console.log(`Executing ${actionName} (attempt ${attempt}/${maxRetries})`);
@@ -176,14 +176,14 @@ export class TestUtils {
             } catch (error) {
                 lastError = error as Error;
                 console.warn(`${actionName} failed on attempt ${attempt}: ${error}`);
-                
+
                 if (attempt < maxRetries) {
                     console.log(`Retrying in ${retryDelay}ms...`);
                     await this.wait(retryDelay);
                 }
             }
         }
-        
+
         throw new Error(
             ` ${actionName} failed after ${maxRetries} attempts. ` +
             `Last error: ${lastError?.message}`
@@ -230,7 +230,7 @@ export class TestUtils {
     public static async cleanupTestArtifacts(keepLatest: number = 5): Promise<void> {
         try {
             const screenshotDir: string = this.envUtils.get('SCREENSHOT_DIR', 'screenshots');
-            
+
             if (fs.existsSync(screenshotDir)) {
                 const files: string[] = fs.readdirSync(screenshotDir)
                     .filter(file => file.endsWith('.png'))
