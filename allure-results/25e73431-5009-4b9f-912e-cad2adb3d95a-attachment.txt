@@ -1,0 +1,16 @@
+Allure Step Failed: Login with valid credentials Error: Failed to navigate to login. URL: https://www.levents.asia/login. Error: TimeoutError: page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.levents.asia/", waiting until "load"
+
+    at HomePage.navigateToLoginFromHeader (D:\Oanh's folder\playwright_ts\src\pages\home.page.ts:54:23)
+    at D:\Oanh's folder\playwright_ts\src\tests\cart.test.ts:66:13
+    at Function.step (D:\Oanh's folder\playwright_ts\src\utils\allure.utils.ts:65:28)
+    at D:\Oanh's folder\playwright_ts\src\tests\cart.test.ts:65:9
+    at D:\Oanh's folder\playwright_ts\node_modules\playwright\lib\worker\workerMain.js:323:9
+    at D:\Oanh's folder\playwright_ts\node_modules\playwright\lib\worker\testInfo.js:320:11
+    at TimeoutManager.withRunnable (D:\Oanh's folder\playwright_ts\node_modules\playwright\lib\worker\timeoutManager.js:67:14)
+    at TestInfoImpl._runWithTimeout (D:\Oanh's folder\playwright_ts\node_modules\playwright\lib\worker\testInfo.js:318:7)
+    at D:\Oanh's folder\playwright_ts\node_modules\playwright\lib\worker\workerMain.js:321:7
+    at WorkerMain._runTest (D:\Oanh's folder\playwright_ts\node_modules\playwright\lib\worker\workerMain.js:296:5)
+    at WorkerMain.runTestGroup (D:\Oanh's folder\playwright_ts\node_modules\playwright\lib\worker\workerMain.js:196:11)
+    at process.<anonymous> (D:\Oanh's folder\playwright_ts\node_modules\playwright\lib\common\process.js:72:22)

@@ -81,7 +81,7 @@ export default defineConfig({
     // Screenshot configuration - capture on failure and first retry
     screenshot: {
       mode: 'only-on-failure',
-      fullPage: true
+      fullPage: false
     },
    
     // Video recording configuration - always keep videos for failed tests

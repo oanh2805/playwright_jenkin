@@ -97,7 +97,6 @@ pipeline {
                         commandline: 'allure',
                         reportBuildPolicy: 'ALWAYS',
                         results: [[path: 'allure-results']],
-                        customLogo: false
                     ])
                 }
             }
@@ -108,6 +107,7 @@ pipeline {
         always {
             // Publish test results
             // junit testResults: 'test-results/junit-report.xml', allowEmptyResults: true
+            sh "sudo chmod -R 777 ${WORKSPACE}/allure-results ${WORKSPACE}/test-results || true"
             
             // Clean up Docker image
             sh "docker rmi ${IMAGE_NAME} 2>/dev/null || true"
