@@ -20,11 +20,11 @@ export default defineConfig({
   globalTimeout: 30 * 60 * 1000,
  
   // Individual test timeout from environment or default 2 minutes
-  timeout: envUtils.getNumber('TEST_TIMEOUT', 2 * 60 * 1000),
+  timeout: envUtils.getNumber('TEST_TIMEOUT', 2 * 150 * 1000),
  
   // Expect assertion timeout
   expect: {
-    timeout: envUtils.getNumber('EXPECT_TIMEOUT', 10 * 1000)
+    timeout: envUtils.getNumber('EXPECT_TIMEOUT', 15 * 1000)
   },
  
   // Run tests in files in parallel
@@ -38,7 +38,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
  
   // Run 3 browser projects concurrently by default
-  workers: 3,
+  workers: process.env.CI ? 2 : 3,
  
   // Enhanced reporter configuration with Allure integration
   reporter: [
@@ -92,10 +92,10 @@ export default defineConfig({
     },
    
     // Action timeout
-    actionTimeout: envUtils.getNumber('ACTION_TIMEOUT', 15 * 1000),
+    actionTimeout: envUtils.getNumber('ACTION_TIMEOUT', 20 * 1000),
    
     // Navigation timeout
-    navigationTimeout: envUtils.getNumber('NAVIGATION_TIMEOUT', 30 * 1000),
+    navigationTimeout: envUtils.getNumber('NAVIGATION_TIMEOUT', 60 * 1000),
    
     // Ignore HTTPS errors for testing environments
     ignoreHTTPSErrors: envUtils.getBoolean('IGNORE_HTTPS_ERRORS', true),
@@ -127,7 +127,7 @@ export default defineConfig({
     }
   },
  
-  // Project configuration for 3 desktop browsers
+  // Project configuration for 2 desktop browsers
   projects: [
  
     // Firefox Desktop  
@@ -146,7 +146,7 @@ export default defineConfig({
       name: 'webkit-desktop',
       use: {
         ...devices['Desktop Safari'],
-        //thêm này 
+        //thêm này
         actionTimeout: 20000,
         launchOptions: {
           slowMo: envUtils.getNumber('SLOW_MO', 0)

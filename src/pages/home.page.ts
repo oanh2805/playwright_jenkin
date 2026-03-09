@@ -44,7 +44,8 @@ export class HomePage extends BasePage {
             await this.captureScreenshot('navigate_to_login_from_header_error');
             throw new Error(`Failed to navigate to login. URL: ${this.getCurrentUrl()}. Error: ${error}`);
         }
-    }    
+    }
+    
 
     public async openUserMenu(): Promise<void> {
         try {

@@ -13,6 +13,8 @@
     "test:login": "playwright test --grep @login",
     "test:headless": "playwright test --headed=false",
     "test:qa": "cross-env ENV=qa playwright test",
+    
+    "pretest:qa": "npm run clean",
     "test:stg": "cross-env ENV=stg playwright test",
     "cucumber": "cucumber-js",
     "cucumber:headed": "cross-env HEADED=true cucumber-js",

@@ -35,6 +35,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm
+                //thêm ni
+                sh "rm -rf allure-results test-results screenshots"
             }
         }
         
@@ -99,6 +101,8 @@ pipeline {
                         properties: [],
                         reportBuildPolicy: 'ALWAYS',
                         results: [[path: 'allure-results']],
+                        // Thêm dòng này để report mới không bị lẫn với report cũ
+                        clean: true
                     ])
                 }
             }
