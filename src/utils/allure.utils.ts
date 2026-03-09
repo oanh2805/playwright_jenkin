@@ -20,10 +20,12 @@ export class AllureUtils {
         screenshotName: string = 'screenshot',
         description: string = 'Page Screenshot'
     ): Promise<string> {
-        const timestamp: string = new Date().toISOString().replace(/[:.]/g, '-');
+        
+        try {
+            const timestamp: string = new Date().toISOString().replace(/[:.]/g, '-');
             const fileName: string = `${screenshotName}_${timestamp}.png`;
             const screenshotPath: string = path.join('screenshots', fileName);
-        try {
+
             // Ensure screenshots directory exists
             if (!fs.existsSync('screenshots')) {
                 fs.mkdirSync('screenshots', { recursive: true });
@@ -32,9 +34,7 @@ export class AllureUtils {
             // Capture screenshot
             const screenshotBuffer: Buffer = await page.screenshot({ 
                 fullPage: false,
-                type: 'png',
-                timeout: 10000,
-                animations: "disabled"
+                type: 'png'
             });
             
             // Save to file

@@ -1,0 +1,126 @@
+Failed to attach screenshot to Allure: page.screenshot: Timeout 10000ms exceeded.
+Call log:
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+
+    at Function.attachScreenshot (D:\Oanh's folder\playwright_ts\src\utils\allure.utils.ts:33:57)
+    at D:\Oanh's folder\playwright_ts\src\tests\login.test.ts:76:31
+    at Function.step (D:\Oanh's folder\playwright_ts\src\utils\allure.utils.ts:66:28)
+    at D:\Oanh's folder\playwright_ts\src\tests\login.test.ts:74:9 {
+  name: 'TimeoutError',
+  [Symbol(step)]: {
+    location: {
+      file: "D:\\Oanh's folder\\playwright_ts\\src\\utils\\allure.utils.ts",
+      line: 33,
+      column: 57,
+      function: 'Function.attachScreenshot'
+    },
+    category: 'pw:api',
+    title: 'Screenshot',
+    apiName: 'page.screenshot',
+    params: {
+      fullPage: false,
+      type: 'png',
+      timeout: 10000,
+      animations: 'disabled',
+      mask: undefined
+    },
+    group: undefined,
+    stepId: 'pw:api@66',
+    boxedStack: undefined,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'pw:api@66',
+      _title: 'Screenshot',
+      _parentStep: undefined,
+      skip: [Function (anonymous)]
+    },
+    complete: [Function: complete],
+    endWallTime: 1773027057785,
+    error: {
+      message: 'TimeoutError: page.screenshot: Timeout 10000ms exceeded.\n' +
+        'Call log:\n' +
+        '\x1B[2m  - taking page screenshot\x1B[22m\n' +
+        '\x1B[2m    - disabled all CSS animations\x1B[22m\n' +
+        '\x1B[2m  - waiting for fonts to load...\x1B[22m\n',
+      stack: 'TimeoutError: page.screenshot: Timeout 10000ms exceeded.\n' +
+        'Call log:\n' +
+        '\x1B[2m  - taking page screenshot\x1B[22m\n' +
+        '\x1B[2m    - disabled all CSS animations\x1B[22m\n' +
+        '\x1B[2m  - waiting for fonts to load...\x1B[22m\n' +
+        '\n' +
+        "    at Function.attachScreenshot (D:\\Oanh's folder\\playwright_ts\\src\\utils\\allure.utils.ts:33:57)\n" +
+        "    at D:\\Oanh's folder\\playwright_ts\\src\\tests\\login.test.ts:76:31\n" +
+        "    at Function.step (D:\\Oanh's folder\\playwright_ts\\src\\utils\\allure.utils.ts:66:28)\n" +
+        "    at D:\\Oanh's folder\\playwright_ts\\src\\tests\\login.test.ts:74:9",
+      cause: undefined
+    }
+  }
+}
+Allure Step Failed: Verify successful login page.screenshot: Timeout 10000ms exceeded.
+Call log:
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+
+    at Function.attachScreenshot (D:\Oanh's folder\playwright_ts\src\utils\allure.utils.ts:33:57)
+    at D:\Oanh's folder\playwright_ts\src\tests\login.test.ts:76:31
+    at Function.step (D:\Oanh's folder\playwright_ts\src\utils\allure.utils.ts:66:28)
+    at D:\Oanh's folder\playwright_ts\src\tests\login.test.ts:74:9 {
+  name: 'TimeoutError',
+  [Symbol(step)]: {
+    location: {
+      file: "D:\\Oanh's folder\\playwright_ts\\src\\utils\\allure.utils.ts",
+      line: 33,
+      column: 57,
+      function: 'Function.attachScreenshot'
+    },
+    category: 'pw:api',
+    title: 'Screenshot',
+    apiName: 'page.screenshot',
+    params: {
+      fullPage: false,
+      type: 'png',
+      timeout: 10000,
+      animations: 'disabled',
+      mask: undefined
+    },
+    group: undefined,
+    stepId: 'pw:api@66',
+    boxedStack: undefined,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'pw:api@66',
+      _title: 'Screenshot',
+      _parentStep: undefined,
+      skip: [Function (anonymous)]
+    },
+    complete: [Function: complete],
+    endWallTime: 1773027057785,
+    error: {
+      message: 'TimeoutError: page.screenshot: Timeout 10000ms exceeded.\n' +
+        'Call log:\n' +
+        '\x1B[2m  - taking page screenshot\x1B[22m\n' +
+        '\x1B[2m    - disabled all CSS animations\x1B[22m\n' +
+        '\x1B[2m  - waiting for fonts to load...\x1B[22m\n',
+      stack: 'TimeoutError: page.screenshot: Timeout 10000ms exceeded.\n' +
+        'Call log:\n' +
+        '\x1B[2m  - taking page screenshot\x1B[22m\n' +
+        '\x1B[2m    - disabled all CSS animations\x1B[22m\n' +
+        '\x1B[2m  - waiting for fonts to load...\x1B[22m\n' +
+        '\n' +
+        "    at Function.attachScreenshot (D:\\Oanh's folder\\playwright_ts\\src\\utils\\allure.utils.ts:33:57)\n" +
+        "    at D:\\Oanh's folder\\playwright_ts\\src\\tests\\login.test.ts:76:31\n" +
+        "    at Function.step (D:\\Oanh's folder\\playwright_ts\\src\\utils\\allure.utils.ts:66:28)\n" +
+        "    at D:\\Oanh's folder\\playwright_ts\\src\\tests\\login.test.ts:74:9",
+      cause: undefined
+    }
+  }
+}

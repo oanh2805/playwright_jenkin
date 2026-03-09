@@ -111,11 +111,10 @@ export class ProductPage extends BasePage {
                 await addToCartButton.click({ force: true, timeout: 5000 });
                 await TestUtils.wait(2000);
                 
-                // Chỉ check 1 indicator duy nhất
                 try {
                     await this.page.waitForSelector(this.LOCATOR_SUCCESS_MSG, { timeout: 2000 });
                 } catch (e) {
-                    console.log('Warning: Success message not detected, but button was clicked.');
+                    console.info('Success message not detected, but button was clicked.');
                 }
                 
                 return true;
