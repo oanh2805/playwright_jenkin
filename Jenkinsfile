@@ -94,7 +94,9 @@ pipeline {
                     sh "echo '📈 Generating Allure Report...'"
                     
                     allure([
-                        commandline: 'allure',
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
                         reportBuildPolicy: 'ALWAYS',
                         results: [[path: 'allure-results']],
                     ])
@@ -107,7 +109,9 @@ pipeline {
         always {
             // Publish test results
             // junit testResults: 'test-results/junit-report.xml', allowEmptyResults: true
-            sh "sudo chmod -R 777 ${WORKSPACE}/allure-results ${WORKSPACE}/test-results || true"
+            sh """
+                docker run --rm -v ${WORKSPACE}:/workspace busybox chown -R \$(id -u):\$(id -g) /workspace/allure-results /workspace/test-results || true
+            """
             
             // Clean up Docker image
             sh "docker rmi ${IMAGE_NAME} 2>/dev/null || true"
