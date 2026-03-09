@@ -13,7 +13,7 @@ export class HomePage extends BasePage {
     private readonly navigation_MainMenu = "//nav[contains(@class, 'main-nav') or contains(@class, 'primary-nav')] | //ul[contains(@class, 'main-menu')]";
     private readonly container_PageContent = "//main[@id='main-content'] | //div[contains(@class, 'page-content') or contains(@class, 'main-content')]";
     private readonly link_HeaderLogin = "header a[href='/login'], a.linkAccount[href='/login'], a[href='/login'][title='Open page'], a[href='/login']:has-text('Tài khoản')";
-
+    
     constructor(page: Page) {
         super(page);
     }
@@ -27,30 +27,30 @@ export class HomePage extends BasePage {
             });
 
             await TestUtils.waitForElementVisible(this.page, this.link_HeaderLogin, this.timeout, 'Header Account/Login Link');
-            
+
             const loginLink = this.page.locator(this.link_HeaderLogin).first();
-            
+
             await loginLink.scrollIntoViewIfNeeded();
-            
+
             await this.page.waitForTimeout(500);
             await loginLink.click({ force: true });
-            
+
             await this.page.waitForURL('**/login**', { 
                 timeout: this.timeout,
                 waitUntil: 'commit' 
             });
-            
+
         } catch (error) {
             await this.captureScreenshot('navigate_to_login_from_header_error');
             throw new Error(`Failed to navigate to login. URL: ${this.getCurrentUrl()}. Error: ${error}`);
         }
-    }
+    }    
 
     public async openUserMenu(): Promise<void> {
         try {
             const userMenuVisible = await this.page.locator(this.button_UserMenu).isVisible();
             const userProfileVisible = await this.page.locator(this.button_UserProfile).isVisible();
-            
+
             if (userMenuVisible) {
                 await this.clickElement(this.button_UserMenu, 'User Menu Button');
             } else if (userProfileVisible) {
@@ -69,7 +69,7 @@ export class HomePage extends BasePage {
         try {
             await TestUtils.waitForElementVisible(this.page, this.container_PageContent, this.timeout, 'Main Page Content');
             await TestUtils.waitForElementVisible(this.page, this.navigation_MainMenu, this.timeout, 'Main Navigation Menu');
-            
+
             const currentUrl: string = this.getCurrentUrl();
             if (currentUrl.includes('login') || currentUrl.includes('signin')) {
                 throw new Error(`Still on login page. URL: ${currentUrl}`);
@@ -88,12 +88,12 @@ export class HomePage extends BasePage {
             const baseUrl = this.envUtils.getBaseUrl();
             const expectedDomain = baseUrl.replace(/https?:\/\//, '').replace(/\/$/, '');
 
-            await this.page.waitForLoadState('load', { timeout: Math.min(this.timeout, 10000) }).catch(() => {});
+            await this.page.waitForLoadState('load', { timeout: Math.min(this.timeout, 10000) }).catch(() => { });
             await this.page.evaluate(() => {
                 document.documentElement.style.scrollBehavior = 'auto';
                 document.body.style.scrollBehavior = 'auto';
                 window.scrollTo(0, 0);
-            }).catch(() => {});
+            }).catch(() => { });
 
             const start = Date.now();
             let lastUrl = this.getCurrentUrl();
@@ -125,8 +125,8 @@ export class HomePage extends BasePage {
 
     public async isUserMenuAvailable(): Promise<boolean> {
         try {
-            return await this.page.locator(this.button_UserMenu).isVisible() || 
-                   await this.page.locator(this.button_UserProfile).isVisible();
+            return await this.page.locator(this.button_UserMenu).isVisible() ||
+                await this.page.locator(this.button_UserProfile).isVisible();
         } catch {
             return false;
         }

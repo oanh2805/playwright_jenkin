@@ -33,8 +33,8 @@ export class TestUtils {
             
             await page.screenshot({ 
                 path: filePath, 
-                fullPage: false,      
-                timeout: 10000,     
+                fullPage: false,  
+                timeout: 30000,  
                 animations: "disabled" 
             });
 

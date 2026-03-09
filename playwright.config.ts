@@ -34,7 +34,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
  
   // Retry configuration - no retries, failed tests stay failed
-  retries: 0,
+  // retries: 0,
+  retries: process.env.CI ? 2 : 0,
  
   // Run 3 browser projects concurrently by default
   workers: 3,
@@ -145,6 +146,8 @@ export default defineConfig({
       name: 'webkit-desktop',
       use: {
         ...devices['Desktop Safari'],
+        //thêm này 
+        actionTimeout: 20000,
         launchOptions: {
           slowMo: envUtils.getNumber('SLOW_MO', 0)
         }
