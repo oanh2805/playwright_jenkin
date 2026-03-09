@@ -14,7 +14,10 @@
     "test:headless": "playwright test --headed=false",
     "test:qa": "cross-env ENV=qa playwright test",
     
-    "pretest:qa": "npm run clean",
+    "clean": "rimraf allure-results/* test-results/* screenshots/*",
+    "pretest:qa": "npm run clean || true",
+
+    
     "test:stg": "cross-env ENV=stg playwright test",
     "cucumber": "cucumber-js",
     "cucumber:headed": "cross-env HEADED=true cucumber-js",
@@ -24,7 +27,6 @@
     "allure:open": "allure open allure-report",
     "allure:serve": "allure serve allure-results",
     "report": "npm run allure:generate && npm run allure:open",
-    "clean": "rimraf test-results allure-results allure-report screenshots",
     "install:browsers": "playwright install"
   },
   "keywords": [

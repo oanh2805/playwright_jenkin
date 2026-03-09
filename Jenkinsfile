@@ -36,7 +36,10 @@ pipeline {
             steps {
                 checkout scm
                 //thêm ni
-                sh "rm -rf allure-results test-results screenshots"
+                script {
+            // Dọn dẹp folder từ bên ngoài Docker trước khi bắt đầu
+            sh "rm -rf allure-results/* test-results/* screenshots/* || true"
+        }
             }
         }
         
@@ -51,37 +54,78 @@ pipeline {
             }
         }
         
+        // stage('Run Tests') {
+        //     steps {
+        //         script {
+        //             withCredentials([
+        //                 string(credentialsId: 'TEST_PHONE',    variable: 'TEST_PHONE'),
+        //                 string(credentialsId: 'TEST_PASSWORD', variable: 'TEST_PASSWORD')
+        //             ]) {
+        //                 def testCommand = getTestCommand(params.TEST_TYPE, params.ENV)
+                        
+        //                 // Load .env file
+        //                 def envFile = "${params.ENV}.env"
+                        
+        //                 sh """
+        //                     docker run --rm \
+        //                         -e ENV=${params.ENV} \
+        //                         -e BROWSER=${params.BROWSER} \
+        //                         -e TEST_PHONE=\$TEST_PHONE \
+        //                         -e TEST_PASSWORD=\$TEST_PASSWORD \
+        //                         -e CI=true \
+        //                         -v ${WORKSPACE_DIR}/allure-results:/app/allure-results \
+        //                         -v ${WORKSPACE_DIR}/test-results:/app/test-results \
+        //                         -v ${WORKSPACE_DIR}/screenshots:/app/screenshots \
+        //                         ${IMAGE_NAME} \
+        //                         ${testCommand}
+        //                 """
+        //             }
+        //         }
+        //     }
+        //     post {
+        //         always {
+        //             echo "Collecting test results..."
+        //             archiveArtifacts artifacts: 'allure-results/**,test-results/**', allowEmptyArchive: true
+        //         }
+        //         failure {
+        //             archiveArtifacts artifacts: 'screenshots/**', allowEmptyArchive: true
+        //         }
+        //     }
+        // }
+
         stage('Run Tests') {
             steps {
                 script {
-                    withCredentials([
-                        string(credentialsId: 'TEST_PHONE',    variable: 'TEST_PHONE'),
-                        string(credentialsId: 'TEST_PASSWORD', variable: 'TEST_PASSWORD')
-                    ]) {
-                        def testCommand = getTestCommand(params.TEST_TYPE, params.ENV)
-                        
-                        // Load .env file
-                        def envFile = "${params.ENV}.env"
-                        
-                        sh """
-                            docker run --rm \
-                                -e ENV=${params.ENV} \
-                                -e BROWSER=${params.BROWSER} \
-                                -e TEST_PHONE=\$TEST_PHONE \
-                                -e TEST_PASSWORD=\$TEST_PASSWORD \
-                                -e CI=true \
-                                -v ${WORKSPACE_DIR}/allure-results:/app/allure-results \
-                                -v ${WORKSPACE_DIR}/test-results:/app/test-results \
-                                -v ${WORKSPACE_DIR}/screenshots:/app/screenshots \
-                                ${IMAGE_NAME} \
-                                ${testCommand}
-                        """
+                    // Dùng catchError để nếu test fail thì Stage đỏ nhưng Build vẫn SUCCESS để ra được Report
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                        withCredentials([
+                            string(credentialsId: 'TEST_PHONE',    variable: 'TEST_PHONE'),
+                            string(credentialsId: 'TEST_PASSWORD', variable: 'TEST_PASSWORD')
+                        ]) {
+                            def testCommand = getTestCommand(params.TEST_TYPE, params.ENV)
+                            
+                            sh """
+                                docker run --rm \
+                                    -e ENV=${params.ENV} \
+                                    -e BROWSER=${params.BROWSER} \
+                                    -e TEST_PHONE=\$TEST_PHONE \
+                                    -e TEST_PASSWORD=\$TEST_PASSWORD \
+                                    -e CI=true \
+                                    -v ${WORKSPACE_DIR}/allure-results:/app/allure-results \
+                                    -v ${WORKSPACE_DIR}/test-results:/app/test-results \
+                                    -v ${WORKSPACE_DIR}/screenshots:/app/screenshots \
+                                    ${IMAGE_NAME} \
+                                    ${testCommand}
+                            """
+                        }
                     }
                 }
             }
             post {
                 always {
                     echo "Collecting test results..."
+                    // Thêm quyền đọc ghi cho Jenkins trước khi archive để tránh lỗi permission
+                    sh "docker run --rm -v ${WORKSPACE}:/workspace busybox chown -R \$(id -u):\$(id -g) /workspace/allure-results /workspace/test-results || true"
                     archiveArtifacts artifacts: 'allure-results/**,test-results/**', allowEmptyArchive: true
                 }
                 failure {
