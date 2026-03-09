@@ -13,11 +13,7 @@
     "test:login": "playwright test --grep @login",
     "test:headless": "playwright test --headed=false",
     "test:qa": "cross-env ENV=qa playwright test",
-    
-    "clean": "rimraf allure-results/* test-results/* screenshots/*",
-    "pretest:qa": "npm run clean || true",
-
-    
+    "clean": "rimraf test-results allure-results allure-report screenshots",
     "test:stg": "cross-env ENV=stg playwright test",
     "cucumber": "cucumber-js",
     "cucumber:headed": "cross-env HEADED=true cucumber-js",
