@@ -5,10 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "clean": "rimraf test-results allure-results allure-report screenshots",
-    "pretest:qa": "npm run clean",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:login": "playwright test --grep @login",
+    "test:headless": "playwright test --headed=false",
     "test:qa": "cross-env ENV=qa playwright test",
-    "pretest:stg": "npm run clean",
     "test:stg": "cross-env ENV=stg playwright test",
     "cucumber": "cucumber-js",
     "cucumber:headed": "cross-env HEADED=true cucumber-js",
@@ -18,8 +22,19 @@
     "allure:open": "allure open allure-report",
     "allure:serve": "allure serve allure-results",
     "report": "npm run allure:generate && npm run allure:open",
+    "clean": "rimraf test-results allure-results allure-report screenshots",
     "install:browsers": "playwright install"
   },
+  "keywords": [
+    "playwright",
+    "typescript",
+    "cucumber",
+    "allure",
+    "automation",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.3.3",
