@@ -55,7 +55,7 @@ pipeline {
                 script {
                     withCredentials([
                         string(credentialsId: 'TEST_PHONE',    variable: 'TEST_PHONE'),
-                        string(credentialsId: 'TEST_PASSWORD', variable: 'TEST_PASSWORD')
+                        string(credentialsId: 'TEST_PASSWORD', variable: 'TEST_PASSWORD'),
                         string(credentialsId: 'BASE_URL',       variable: 'BASE_URL')
                     ]) {
                         def testCommand = getTestCommand(params.TEST_TYPE, params.ENV, params.BROWSER)
