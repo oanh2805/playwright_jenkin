@@ -1,3 +1,4 @@
+turn on VPN for this prj  
 # CICD
 1. Có 3 môi trường: QA - STG - DEV và sẽ run trên 3 loại browser: Chrome - Firefox - Safari, triển khai quản lý source để user có thể chọn môi trường và browser để execute (run in = cmd):
 - Ví dụ: 
