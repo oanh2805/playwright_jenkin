@@ -4,8 +4,8 @@ services:
     build:
       context: .
       dockerfile: .docker/Jenkins/Dockerfile
-    image: playwright-jenkins:latest
-    container_name: playwright-jenkins
+    image: automation-web-jenkins:latest
+    container_name: automation-web-jenkins
     privileged: true
     user: root
     restart: always
@@ -13,10 +13,10 @@ services:
       - "8080:8080" # Jenkins Web UI
       - "50000:50000" # Jenkins agent port
     volumes:
-      - jenkins_home:/var/jenkins_home # Persist Jenkins data
+      - automation_web_jenkins_home:/var/jenkins_home # Persist Jenkins data
       - /var/run/docker.sock:/var/run/docker.sock # Docker socket binding
       # /usr/bin/docker not mounted — Docker CLI is installed inside the image.
       # Only the socket mount is needed on Docker Desktop for Windows.
 volumes:
-  jenkins_home:
-    name: jenkins_home
+  automation_web_jenkins_home:
+    name: automation_web_jenkins_home

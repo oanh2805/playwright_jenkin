@@ -27,7 +27,7 @@ pipeline {
     }
     
     environment {
-        IMAGE_NAME = "playwright-tests:${env.BUILD_NUMBER}"
+        IMAGE_NAME = "automation-web-tests:${env.BUILD_NUMBER}"
         WORKSPACE_DIR = "${WORKSPACE}"
     }
     
