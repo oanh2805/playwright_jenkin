@@ -57,8 +57,7 @@ pipeline {
                         string(credentialsId: 'TEST_PHONE',    variable: 'TEST_PHONE'),
                         string(credentialsId: 'TEST_PASSWORD', variable: 'TEST_PASSWORD')
                     ]) {
-                        def testCommand = getTestCommand(params.TEST_TYPE, params.ENV)
-                        
+                        def testCommand = getTestCommand(params.TEST_TYPE, params.ENV, params.BROWSER)                        
                         // Load .env file
                         def envFile = "${params.ENV}.env"
                         
@@ -145,15 +144,7 @@ pipeline {
 }
 
 // ── Helper function to build test command ──
-def getTestCommand(testType, env) {
-    switch(testType) {
-        case 'playwright':
-            return "npm run test:${env}"
-        case 'cucumber':
-            return "npm run cucumber:${env}"
-        case 'all':
-            return "sh -c 'npm run test:${env} && npm run cucumber:${env}'"
-        default:
-            return "npm run test:${env}"
-    }
+def getTestCommand(testType, env, browser) {
+    // Execute the npm script defined in package.json, for instance, test:qa:firefox
+    return "npm run test:${env}:${browser}"
 }
