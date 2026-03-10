@@ -1,12 +1,12 @@
 pipeline {
     agent any
-    
+   
     options {
         timestamps()
         buildDiscarder(logRotator(numToKeepStr: '10'))
         timeout(time: 1, unit: 'HOURS')
     }
-    
+   
     // ── Parameters: user selects test type, ENV and BROWSER on each build ──
     parameters {
         choice(
@@ -25,20 +25,20 @@ pipeline {
             description: 'Browser to use (firefox, webkit)'
         )
     }
-    
+   
     environment {
         IMAGE_NAME = "automation-web-tests:${env.BUILD_NUMBER}"
         WORKSPACE_DIR = "${WORKSPACE}"
     }
-    
+   
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
-    
-        
+   
+       
         stage('Build Docker Image') {
             steps {
                 script {
@@ -49,30 +49,44 @@ pipeline {
                 }
             }
         }
-        
+       
         stage('Run Tests') {
             steps {
                 script {
                     withCredentials([
                         string(credentialsId: 'TEST_PHONE',    variable: 'TEST_PHONE'),
                         string(credentialsId: 'TEST_PASSWORD', variable: 'TEST_PASSWORD')
+                        string(credentialsId: 'BASE_URL',       variable: 'BASE_URL')
                     ]) {
-                        def testCommand = getTestCommand(params.TEST_TYPE, params.ENV, params.BROWSER)                        
+                        def testCommand = getTestCommand(params.TEST_TYPE, params.ENV, params.BROWSER)
+                       
                         // Load .env file
                         def envFile = "${params.ENV}.env"
-                        
+                       
                         sh """
-                            docker run --rm \
-                                -e ENV=${params.ENV} \
-                                -e BROWSER=${params.BROWSER} \
-                                -e TEST_PHONE=\$TEST_PHONE \
-                                -e TEST_PASSWORD=\$TEST_PASSWORD \
-                                -e CI=true \
-                                -v ${WORKSPACE_DIR}/allure-results:/app/allure-results \
-                                -v ${WORKSPACE_DIR}/test-results:/app/test-results \
-                                -v ${WORKSPACE_DIR}/screenshots:/app/screenshots \
-                                ${IMAGE_NAME} \
-                                ${testCommand}
+                            # We use 'docker create' then 'docker start' so we can use 'docker cp' later,
+                            # avoiding Host-vs-Container volume mount issues in a Docker-in-Docker CI setup.
+                            CONTAINER_ID=\$(docker create \\
+                                -e ENV=${params.ENV} \\
+                                -e BROWSER=${params.BROWSER} \\
+                                -e BASE_URL=\$BASE_URL \\
+                                -e ALLURE_RESULTS_DIR=allure-results \\
+                                -e VALID_EMAIL=\$VALID_EMAIL \\
+                                -e VALID_PASSWORD=\$VALID_PASSWORD \\
+                                ${IMAGE_NAME})
+ 
+                            set +e
+                            docker start -a \$CONTAINER_ID
+                            EXIT_CODE=\$?
+                            set -e
+ 
+                            # Copy the test output to Jenkins workspace
+                            docker cp \$CONTAINER_ID:/app/allure-results ./ || true
+                            docker cp \$CONTAINER_ID:/app/videos ./ || true
+ 
+                            docker rm \$CONTAINER_ID
+ 
+                            exit \$EXIT_CODE
                         """
                     }
                 }
@@ -87,12 +101,12 @@ pipeline {
                 }
             }
         }
-        
+       
         stage('Generate Allure Report') {
             steps {
                 script {
                     sh "echo '📈 Generating Allure Report...'"
-                    
+                   
                     allure([
                         includeProperties: false,
                         jdk: '',
@@ -104,45 +118,21 @@ pipeline {
             }
         }
     }
-    
+   
     post {
         always {
-            // Publish test results
-            // junit testResults: 'test-results/junit-report.xml', allowEmptyResults: true
-            sh """
-                docker run --rm -v ${WORKSPACE}:/workspace busybox chown -R \$(id -u):\$(id -g) /workspace/allure-results /workspace/test-results || true
-            """
-            
-            // Clean up Docker image
-            sh "docker rmi ${IMAGE_NAME} 2>/dev/null || true"
-            sh "docker system prune -f 2>/dev/null || true"
+            // Clean up the image to save disk space on the Jenkins host
+            sh "docker rmi ${env.IMAGE_NAME} || true"
         }
-        
         success {
-            echo """
-            ✅ Tests passed successfully!
-            ━━━━━━━━━━━━━━━━━━━━━
-            ENV: ${params.ENV}
-            BROWSER: ${params.BROWSER}
-            TEST_TYPE: ${params.TEST_TYPE}
-            ━━━━━━━━━━━━━━━━━━━━━
-            """
+            echo "✅ Tests passed on ENV=${params.ENV} | BROWSER=${params.BROWSER}"
         }
-        
         failure {
-            echo """
-            ❌ Tests FAILED
-            ━━━━━━━━━━━━━━━━━━━━━
-            ENV: ${params.ENV}
-            BROWSER: ${params.BROWSER}
-            TEST_TYPE: ${params.TEST_TYPE}
-            📊 Check Allure Report for details
-            ━━━━━━━━━━━━━━━━━━━━━
-            """
+            echo "❌ Tests FAILED on ENV=${params.ENV} | BROWSER=${params.BROWSER} – check Allure report"
         }
     }
 }
-
+ 
 // ── Helper function to build test command ──
 def getTestCommand(testType, env, browser) {
     // Execute the npm script defined in package.json, for instance, test:qa:firefox

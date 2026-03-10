@@ -1,4 +1,3 @@
-
 # Playwright
 node_modules/
 /test-results/
@@ -14,3 +13,8 @@ node_modules/
 /node_modules/
 /allure-results/
 /.playwright-mcp/
+# Bỏ qua tất cả các file và thư mục nằm trong allure-results
+allure-results/*
+ 
+# Ngoại trừ file dummy.txt (dấu ! dùng để loại trừ quy tắc ignore ở trên)
+!allure-results/dummy.txt
