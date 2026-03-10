@@ -71,8 +71,8 @@ pipeline {
                                 -e BROWSER=${params.BROWSER} \\
                                 -e BASE_URL=\$BASE_URL \\
                                 -e ALLURE_RESULTS_DIR=allure-results \\
-                                -e VALID_EMAIL=\$VALID_EMAIL \\
-                                -e VALID_PASSWORD=\$VALID_PASSWORD \\
+                                -e TEST_PHONE=\$TEST_PHONE \\
+                                -e TEST_PASSWORD=\$TEST_PASSWORD \\
                                 ${IMAGE_NAME})
  
                             set +e
@@ -138,3 +138,4 @@ def getTestCommand(testType, env, browser) {
     // Execute the npm script defined in package.json, for instance, test:qa:firefox
     return "npm run test:${env}:${browser}"
 }
+ 
