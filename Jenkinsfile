@@ -218,6 +218,9 @@ pipeline {
                         reportBuildPolicy: 'ALWAYS',
                         results: [[path: 'allure-results']],
                     ])
+
+                    // Nén folder report thành file zip
+                    zip zipFile: 'allure-report.zip', archive: true, dir: 'allure-report'
                 }
             }
         }
@@ -232,7 +235,6 @@ pipeline {
                 def statusText = (currentBuild.currentResult == 'SUCCESS') ? "PASSED" : "FAILED"
                 def cardColor = (currentBuild.currentResult == 'SUCCESS') ? "Good" : "Attention"
                 
-                // Gửi thông báo qua Teams Workflow (Sử dụng Adaptive Card)
                 sh """
                 curl -H 'Content-Type: application/json' -d '{
                     "type": "message",
@@ -260,7 +262,7 @@ pipeline {
                                     },
                                     {
                                         "type": "TextBlock",
-                                        "text": "👉 Click the button below to view full details and evidence (Screenshots/Videos).",
+                                        "text": "👉 View online or download the Zip report below:",
                                         "wrap": true
                                     }
                                 ],
@@ -269,6 +271,11 @@ pipeline {
                                         "type": "Action.OpenUrl",
                                         "title": "🌐 View Allure Report",
                                         "url": "${env.BUILD_URL}allure/"
+                                    },
+                                    {
+                                        "type": "Action.OpenUrl",
+                                        "title": "📦 Download Zip Report",
+                                        "url": "${env.BUILD_URL}artifact/allure-report.zip"
                                     }
                                 ],
                                 "\$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
